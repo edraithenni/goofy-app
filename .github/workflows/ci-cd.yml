@@ -22,19 +22,19 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-node-app:${{ github.sha }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/goofy-app:${{ github.sha }}
 
     - name: Check out GitOps Repo
       uses: actions/checkout@v4
       with:
-        repository: '${{ github.repository_owner }}/my-app-gitops'
+        repository: '${{ github.repository_owner }}/goofy-gitops'
         token: ${{ secrets.GITOPS_TOKEN }}
         path: gitops-repo
 
     - name: Update Image Tag in Manifest
       run: |
         cd gitops-repo
-        sed -i "s|image: .*|image: ${{ secrets.DOCKERHUB_USERNAME }}/my-node-app:${{ github.sha }}|g" deployment.yaml
+        sed -i "s|image: .*|image: ${{ secrets.DOCKERHUB_USERNAME }}/goofy-app:${{ github.sha }}|g" deployment.yaml
         
         git config --global user.name "github-actions"
         git config --global user.email "actions@github.com"
