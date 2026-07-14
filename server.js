@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   res.send(`
     <h1>Hatsune Miku готовит хайперпоп ипишку вместе с Grimes, slayr, MOLIY, Odetari, George Clanton, Frost Children и XAMIYA. Не хватает только славы мэрлоу и мэдкида</h1>
-    <button onclick="document.getElementById('img').src='/images/smeh.png'">показать smeh</button>
+    <button onclick="document.getElementById('img').src='/images/smeh.jpeg'">показать smeh</button>
     <br><br>
     <img id="img" style="max-width:500px; display:none;" onload="this.style.display='block'">
   `);
